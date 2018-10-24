@@ -38,8 +38,8 @@
                 <div class="row">
                   <form>
                       <div class="form-group">
-                          <label for="search">I'm searching for...</label>
-                          <input type="text" class="form-control" id="search" placeholder="Enter your search term">
+                          <label for="searchTerm">I'm searching for...</label>
+                          <input type="text" class="form-control" id="bandSearch" placeholder="Enter your search term">
                       </div>
                       <button type="submit" class="btn btn-primary" id="buttonSubmit1">Submit</button>
                   </form>
@@ -60,6 +60,7 @@
               
                   <script>
 
+            /*
             // This sample uses the Place Autocomplete widget to allow the user to search
             // for and select a place. The sample then displays an info window containing
             // the place ID and other information about the place that the user has
@@ -114,6 +115,7 @@
                 infowindow.open(map, marker);
               });
             }
+            */
               </script>
           
           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_X7udChvMby96HAj5TKcoaJzU-e53RlE&libraries=places&callback=initMap"
@@ -131,8 +133,8 @@
                 <h1 id="containerTitle">What's Near Me</h1>
                 <form>
                     <div class="form-group">
-                        <label for="searchTerm2">City and State</label>
-                        <input type="text" class="form-control" id="search2" placeholder="City and State">
+                        <label for="searchTerm2">City</label>
+                        <input type="text" class="form-control" id="locationSearch" placeholder="City">
                     </div>
                     <button type="submit" class="btn btn-primary" id="buttonSubmit2">Submit</button>
                 </form>
