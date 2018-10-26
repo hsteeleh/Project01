@@ -1,8 +1,7 @@
 Project 01: Global Grooves
 
-No matter who you are or who you’re with, if you love music, you’ll want to know who is playing near you and you’ll want an app to help you find and locate music events nearby.  Global Grooves helps you do just that, with an interactive map and a search tool to help you find your favorite music artist. 
-We created Global Grooves to make sure people like you can know who is playing and where at your convenience. 
+Global Grooves helps travelers find fun events wherever they are based on location or event.  This application can help find events in the future for those who prefer planning, or find events right now for those who are more spontaneous. 
 
-Jon and Arturo worked on the map Function.
+During the team brainstorm session, we noticed some of us were interested in music and others were interested in travel.  We thought combining these two interest would make a fun and useful application for a variety of people. 
 
-Sarah and Hannah worked on front end design, loading the table, extracting info from the JSON TM API respons, getting the "Tickets" links to work. 
+Arturo, Jon, Hannah, and Sarah collaborated to create Global Grooves.
