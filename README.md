@@ -6,6 +6,4 @@ We created Global Grooves to make sure people like you can know who is playing a
 
 Jon and Arturo worked on the map Function.
 
-Sarah worked on the page design.
-
-Hannah worked on Loading the table and getting the links to work. 
+Sarah and Hannah worked on front end design, loading the table, getting the "Tickets" links to work. 
