@@ -1,19 +1,81 @@
+var eventLong = 35.902280;
+var eventLat = -79.032270;
+var eventDate;
+var myLatLng;
+var marker;
+var map;
 
-    $("#buttonSubmit1").on("click", function(event) {
-        console.log("Hello");
-        event.preventDefault();
+
+
+$("#buttonSubmit1").on("click", function(event) {
+    console.log("Hello");
+    event.preventDefault();
 
     var searchTerm = $("#bandSearch").val().trim();
     console.log(searchTerm);
-    var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=1&keyword=" + searchTerm + "&apikey=S5TWixQyqfn94jkCLIpopi3KFDxPPLxa";
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://app.ticketmaster.com/discovery/v2/events.json?size=1&countryCode=US&classificationName-music&keyword=" + searchTerm + "&apikey=S5TWixQyqfn94jkCLIpopi3KFDxPPLxa";
 
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
         console.log(response);
+        var eventName = response._embedded.events[0]._embedded.venues[0].name;
+        console.log(eventName);
+        //console.log(response._embedded.events[0]._embedded.venues[0].location.longitude);
+        eventLong = response._embedded.events[0]._embedded.venues[0].location.longitude;
+        eventLat = response._embedded.events[0]._embedded.venues[0].location.latitude;
+        //eventDate = response._embedded.events[0]._embedded.venues[0].location.latitude;
+        console.log(eventLong);
+        console.log(eventLat);
+        if(response) {
+            google.maps.event.trigger(map, 'resize');
+           
+        } 
+                var queryURL2 = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/js?key=AIzaSyABpwx1UCYz-5RWbpDeYXFGQsT3YSdKanw&callback=initMap"
+        
+            $.ajax({
+                  url: queryURL2,
+                  method: "GET"
+                }).then(function(response) {
+                    console.log(response);
+                    console.log(queryURL2);
+                    var latLng = new google.maps.LatLng(eventLat, eventLong); //Makes a latlng for the new event
+                 
+map.panTo(latLng);
+                
+                
+                // this is panning to the new event, look into panning to over both events
+                //look into pan, setCenter, zoom to get the area you want, markers: --
+            });
+        });
     });
-});
+        
+   
+
+
+function initMap() {
+    console.log("init map long " + eventLong, "& init map lat " + eventLat)
+    myLatLng = {
+        lat: Number(eventLong), 
+        lng: Number(eventLat)
+    };
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: myLatLng
+    });
+
+    marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Party Starts Here!'
+    });
+    
+    
+};
+
+
 
 // Initialize Firebase
 var config = {
@@ -95,6 +157,4 @@ $.ajax({
     
     $("tbody").append(tRow);
     };
-    
-
-    
+//
